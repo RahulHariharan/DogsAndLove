@@ -41,8 +41,8 @@ class MainActivity : AppCompatActivity() {
                     .setAction("Action", null).show()
         }
 
-        var provider : DogAPIProvider = DogAPIProvider()
-        provider.getRandomDog()
+        var provider = DogAPIProvider()
+        provider.getRandomDogs(10)
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

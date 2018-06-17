@@ -10,17 +10,28 @@ import retrofit2.Response
  */
 class DogAPIProvider : DogAPIService {
 
+    override fun getRandomDogs(size: Int): Call<RandomDogs> {
+        var randomDogs : Call<RandomDogs> = DogAPIService.create().getRandomDogs(size)
+        randomDogs.enqueue(object : Callback<RandomDogs> {
+            override fun onFailure(call: Call<RandomDogs>?, t: Throwable?) {}
+            override fun onResponse(call: Call<RandomDogs>?, response: Response<RandomDogs>?) {}
+        })
+        return randomDogs
+    }
+
+    override fun getDogsByBreed(breed: String): Call<RandomDogs> {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun getRandomDogByBreed(breed: String): Call<RandomDog> {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
     override fun getRandomDog(): Call<RandomDog> {
         var randomDog : Call<RandomDog> = DogAPIService.create().getRandomDog()
         randomDog.enqueue(object : Callback<RandomDog> {
-            override fun onFailure(call: Call<RandomDog>?, t: Throwable?) {
-               Log.v("error_",call.toString())
-            }
-
-            override fun onResponse(call: Call<RandomDog>?, response: Response<RandomDog>?) {
-                Log.v("success_", response.toString())
-            }
-
+            override fun onFailure(call: Call<RandomDog>?, t: Throwable?) {}
+            override fun onResponse(call: Call<RandomDog>?, response: Response<RandomDog>?) {}
         })
         return randomDog
     }
