@@ -18,6 +18,5 @@ class DogsAndLoveApplication : Application {
 
     override fun onCreate() {
         super.onCreate()
-
     }
 }
