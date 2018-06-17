@@ -18,13 +18,6 @@ class DogsAndLoveApplication : Application {
 
     override fun onCreate() {
         super.onCreate()
-        submarineComponent = getComponent()
-    }
 
-    fun getComponent(): SubmarineComponent {
-        return
-                .builder()
-                .submarineModule(SubmarineModule())
-                .build()
     }
 }
